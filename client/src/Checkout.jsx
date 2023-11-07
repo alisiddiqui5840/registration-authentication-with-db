@@ -27,56 +27,52 @@ function Checkout()
                 <div class="row mb-4">
                   <div class="col">
                     <div class="form-outline">
-                      <input type="text" id="form7Example1" class="form-control" />
+                      <input type="text"placeholder="Ali" id="form7Example1" required class="form-control" />
                       <label class="form-label" for="form7Example1">First name</label>
                     </div>
                   </div>
 
                   <div class="col">
                     <div class="form-outline">
-                      <input type="text" id="form7Example2" class="form-control" />
+                      <input type="text" placeholder="Siddiqui" id="form7Example2" class="form-control" />
                       <label class="form-label" for="form7Example2">Last name</label>
                     </div>
                   </div>
                 </div>
       
                 
-                <div class="form-outline mb-4">
-                  <input type="text" id="form7Example3" class="form-control" />
-                  <label class="form-label" for="form7Example3">Company name</label>
-                </div>
+               
       
               
                 <div class="form-outline mb-4">
-                  <input type="text" id="form7Example4" class="form-control" />
+                  <input type="text" placeholder="00 House N.o ,Block,City" id="form7Example4" required class="form-control" />
                   <label class="form-label" for="form7Example4">Address</label>
                 </div>
       
                 
                 <div class="form-outline mb-4">
-                  <input type="email" id="form7Example5" class="form-control" />
+                  <input type="email" id="form7Example5" placeholder="ali@email.com" class="form-control" />
                   <label class="form-label" for="form7Example5">Email</label>
                 </div>
       
                
                 <div class="form-outline mb-4">
-                  <input type="number" id="form7Example6" class="form-control" />
+                  <input type="number" id="form7Example6" placeholder="+92111-1111111" required class="form-control" />
                   <label class="form-label" for="form7Example6">Phone</label>
                 </div>
       
                 
                 <div class="form-outline mb-4">
-                  <textarea class="form-control" id="form7Example7" rows="4"></textarea>
+                  <textarea class="form-control" id="form7Example7" placeholder="If any special instruction you want to give" rows="4"></textarea>
                   <label class="form-label" for="form7Example7">Additional information</label>
                 </div>
           
-              
-                <div class="form-check d-flex justify-content-center mb-2">
-                  <input class="form-check-input me-2" type="checkbox" value="" id="form7Example8" checked />
-                  <label class="form-check-label" for="form7Example8">
-                    Create an account?
-                  </label>
-                </div>
+                <Link to="/thankyou"> {/* Specify the path to the "Thank You" page */}
+      <button type="submit" className="btn btn-primary btn-lg btn-block">
+        Make purchase
+      </button>
+    </Link>
+                
               </form>
             </div>
           </div>
@@ -103,15 +99,7 @@ function Checkout()
                
     <div>
 
-</div>
-
-
-
-
-
-
- 
-              
+</div>              
               
                 <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                   <div>
@@ -125,11 +113,7 @@ function Checkout()
          
               </ul>
       
-              <Link to="/thankyou"> {/* Specify the path to the "Thank You" page */}
-      <button type="button" className="btn btn-primary btn-lg btn-block">
-        Make purchase
-      </button>
-    </Link>
+              
             </div>
           </div>
         </div>

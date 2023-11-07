@@ -83,3 +83,36 @@ app.post('/register', (req,res)=>{
 app.listen(3001, () => {
     console.log("server is running")
 })
+
+//new code
+//get total users
+app.get('/getTotalUsers', async (req, res) => {
+  try {
+    const totalUsers = await userModel.countDocuments();
+    res.json({ totalUsers });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+//get total amount
+app.get('/getTotalPurchaseAmount', async (req, res) => {
+  try {
+    const usersWithTotalAmount = await userModel.find({ totalAmount: { $exists: true } });
+    const totalPurchaseAmount = usersWithTotalAmount.reduce((total, user) => total + user.totalAmount, 0);
+    res.json({ totalPurchaseAmount });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+//
+app.get('/getUserData', async (req, res) => {
+  try {
+    const users = await userModel.find();
+    res.json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});

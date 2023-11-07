@@ -54,6 +54,7 @@ function Login(){
                         placeholder="Enter Name"
                         autoComplete="off"
                         name="email"
+                        required
                         className="form-control rounded-0"
                         onChange= {(e)=> setEmail(e.target.value)} />
                        
@@ -66,6 +67,7 @@ function Login(){
                         placeholder="Enter Password"
                         autoComplete="off"
                         name="password"
+                        required
                         className="form-control rounded-0"
                         onChange= {(e)=> setPassword(e.target.value)} />
                          
