@@ -1,0 +1,29 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./server
+    image: my-backend-image
+    ports:
+      - "3002:3001"
+    depends_on:
+      - mongodb  # This ensures that MongoDB is started before the backend service
+    networks:
+      - my-network  # Use a custom network for your services
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - my-network  # Use the same custom network for MongoDB
+
+  frontend:
+    build:
+      context: ./client
+    image: my-frontend-image
+    ports:
+      - "3000:3000"
+
+networks:
+  my-network:

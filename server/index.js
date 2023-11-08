@@ -1,5 +1,5 @@
 const express = require("express")
-const mongoose = require('mongoose')
+const { MongoClient } = require('mongodb');
 const cors = require ("cors")
 const userModel = require('./models/user')
 
@@ -7,7 +7,21 @@ const app = express ()
 app.use ( express.json())
 app.use (cors())
 
-mongoose .connect("mongodb://127.0.0.1:27017/user");
+const uri = 
+'mongodb://mongodb-backend-1:27017/user'; // Use the container name
+
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+app.listen(3001, () => {
+  console.log("server is running")
+})
+//register push data in database
+app.post('/register', (req,res)=>{
+  userModel.create(req.body)
+  .then(user => res.json(user) )
+  .catch(err => res.json(err))
+})
+
+
 //total ammount store
 app.post('/saveTotalAmount', async (req, res) => {
     const { email, totalAmount } = req.body;
@@ -74,15 +88,7 @@ app.post('/getUserData', (req, res) => {
       }
     });
 });
-//register push data in database
-app.post('/register', (req,res)=>{
-    userModel.create(req.body)
-    .then(user => res.json(user) )
-    .catch(err => res.json(err))
-})
-app.listen(3001, () => {
-    console.log("server is running")
-})
+
 
 //new code
 //get total users
